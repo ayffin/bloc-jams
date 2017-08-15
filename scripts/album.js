@@ -71,7 +71,7 @@ var setCurrentAlbum = function(album) {
   albumArtist.firstChild.nodeValue = album.artist;
   albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
   albumImage.setAttribute('src', album.albumArtUrl);
-  albumSongList.innerHTMl = '';
+  albumSongList.innerHTML = '';
 
   for (var i = 0; i < album.songs.length; i++) {
     albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title,
