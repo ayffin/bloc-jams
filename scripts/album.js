@@ -96,7 +96,7 @@ var setCurrentAlbum = function(album) {
   albumArtist.firstChild.nodeValue = album.artist;
   albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
   albumImage.setAttribute('src', album.albumArtUrl);
-  albumSongList.innerHTMl = '';
+  albumSongList.innerHTML = '';
 
   for (var i = 0; i < album.songs.length; i++) {
     albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title,
@@ -105,7 +105,7 @@ var setCurrentAlbum = function(album) {
 };
 
 window.onload = function() {
-
+  setCurrentAlbum(albumMarconi);
   // first method using 3 different callback functions
   function thr() {
     setCurrentAlbum(albumMarconi);
@@ -126,14 +126,16 @@ window.onload = function() {
   }
   albumImage.addEventListener("click", once);
 
-
-  //secong method using Math.random;
-  //   albumImage.addEventListener("click", myFunction);
+  //   var myArray = [albumJayZ, albumMarconi, albumPicasso];
+  //   var index = 0;
+  //   //secong method using Math.random;
+  //   albumImage.addEventListener("click", function() {
+  //     setCurrentAlbum(myArray[index]);
+  //     index++;
+  //   });
   //
-  //   function myFunction() {
-  //     var myArray = [albumJayZ, albumMarconi, albumPicasso];
-  //     var rand = myArray[Math.floor(Math.random() * myArray.length)];
-  //     console.log(setCurrentAlbum(rand));
+  //   if (index === myArray.length) {
+  //     index = 0;
   //   }
   //
 };
